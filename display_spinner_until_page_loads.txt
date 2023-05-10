@@ -1,0 +1,22 @@
+<form id="addechosubform">
+<button type="submit" class="btn btn-primary me-1" disabled><span id="loading">Submit</span></button>
+</form>
+
+<script>
+  const addechosubform = document.getElementById('addechosubform');
+  addechosubform.addEventListener('submit', function(event) {
+    event.preventDefault(); // prevent the form from submitting immediately
+    showLoader(); // call the showLoader() function after a delay
+    setTimeout(function() {
+      addechosubform.submit(); // submit the form after the delay
+    }, 500); // delay time in milliseconds
+  });
+</script>
+
+// showLoader function
+function showLoader() {
+  submitbtn = document.querySelector('button[type="submit"]');
+  spinnerbtn = document.getElementById("loading");
+  submitbtn.disabled = true;
+  spinnerbtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+}
